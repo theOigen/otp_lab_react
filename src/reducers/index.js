@@ -1,5 +1,5 @@
-import weather from './weather'
-import auth from './auth'
+import weather from './weatherReducer'
+import auth from './authReducer'
 import { combineReducers } from 'redux'
 
 export default combineReducers({

@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-export const REQUEST_WEATHER = 'REQUEST_WEATHER'
+import { REQUEST_WEATHER, RECEIVE_WEATHER } from './types'
 
 export function requestWeather() {
     return {
@@ -9,26 +8,21 @@ export function requestWeather() {
     }
 }
 
-export const RECEIVE_WEATHER = 'RECEIVE_WEATHER'
-
-export function receiveWeather(weatherData, err) {
+export function receiveWeather(forecasts, err) {
     return {
         type: RECEIVE_WEATHER,
-        weatherData: weatherData,
+        payload: forecasts,
         error: err
     }
 }
 
 
 export function fetchWeather() {
-    const reqOptions = {
-        mode: "cors"
-    }
-    return async dispatch => {
+    return async (dispatch) => {
         dispatch(requestWeather())
         try {
             const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/924938/`)
-            return dispatch(receiveWeather(response.data))
+            return dispatch(receiveWeather(response.data.consolidated_weather, null))
         } catch (err) {
             return dispatch(receiveWeather(null, err))
         }
