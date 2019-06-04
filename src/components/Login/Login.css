@@ -55,3 +55,11 @@
   width: 40%;
   height: 60%;
 }
+
+.valid {
+  border: 1px rgb(13, 189, 13) solid;
+}
+
+.invalid {
+  border: 1px rgb(255, 0, 0) solid;
+}

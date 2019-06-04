@@ -1,2 +1,10 @@
+// for weather
 export const REQUEST_WEATHER = 'REQUEST_WEATHER'
 export const RECEIVE_WEATHER = 'RECEIVE_WEATHER'
+
+// for auth
+export const REQUEST_LOGIN = 'REQUEST_LOGIN'
+export const RECEIVE_LOGIN = 'RECEIVE_LOGIN'
+export const REQUEST_REFRESH_LOGIN = 'REQUEST_REFRESH_LOGIN'
+export const RECEIVE_REFRESH_LOGIN = 'RECEIVE_REFRESH_LOGIN'
+export const LOGOUT = 'LOGOUT'

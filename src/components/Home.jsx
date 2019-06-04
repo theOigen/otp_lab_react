@@ -4,15 +4,12 @@ import { connect } from 'react-redux'
 import { fetchWeather } from '../actions/weatherActions'
 
 class Home extends Component {
-    // constructor(props) {
-    //     super(props)
-    //     this.state = {
-    //         isFetching: true,
-    //         weatherData: []
-    //     }
-    // }
-
-    componentWillMount() {
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //     isFetching: true,
+        //     weatherData: []
+        // }
         this.props.fetchWeather()
     }
 
@@ -24,9 +21,9 @@ class Home extends Component {
         } else {
             return (
                 <div>
-                    {this.props.forecasts.map(weather =>
-                        <div key={weather.id}>
-                            {weather.weather_state_name}
+                    {this.props.forecasts.map(forecast =>
+                        <div key={forecast.id}>
+                            {forecast.weather_state_name}
                         </div>
                     )}
                     <h1>Home page</h1>

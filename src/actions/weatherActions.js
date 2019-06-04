@@ -16,7 +16,6 @@ export function receiveWeather(forecasts, err) {
     }
 }
 
-
 export function fetchWeather() {
     return async (dispatch) => {
         dispatch(requestWeather())
