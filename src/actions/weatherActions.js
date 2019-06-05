@@ -21,7 +21,7 @@ export function fetchWeather() {
         dispatch(requestWeather())
         try {
             const response = await axios.get(`https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/924938/`)
-            return dispatch(receiveWeather(response.data.consolidated_weather, null))
+            return dispatch(receiveWeather(response.data, null))
         } catch (err) {
             return dispatch(receiveWeather(null, err))
         }

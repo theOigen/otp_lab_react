@@ -1,7 +1,7 @@
 import { REQUEST_WEATHER, RECEIVE_WEATHER } from '../actions/types'
 
 const initialState = {
-    forecasts: [],
+    forecasts: null,
     isFetching: false,
     error: null
 }

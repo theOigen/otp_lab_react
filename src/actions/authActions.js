@@ -45,19 +45,16 @@ export function logout() {
     }
 }
 
-function timeout(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
-
 export function fetchLogin(credentials) {
-    return async (dispatch) => {
+    return (dispatch) => {
         dispatch(requestLogin(credentials))
         try {
-            await timeout(2000)
-            dispatch(receiveLogin({
-                login: credentials.login
-            }))
-            cookie.save('login', credentials.login, { path: '/' })
+            setTimeout(() => {
+                dispatch(receiveLogin({
+                    login: credentials.login
+                }))
+                cookie.save('login', credentials.login, { path: '/' })
+            }, 2000)
         } catch (error) {
             dispatch(receiveLogin(null, error))
         }
@@ -65,12 +62,13 @@ export function fetchLogin(credentials) {
 }
 
 export function fetchRefreshLogin() {
-    return async (dispatch) => {
+    return (dispatch) => {
         dispatch(requestRefreshLogin())
         try {
-            await timeout(2000)
-            const login = cookie.load('login')
-            dispatch(receiveRefreshLogin(login ? { login } : null))
+            setTimeout(() => {
+                const login = cookie.load('login')
+                dispatch(receiveRefreshLogin(login ? { login } : null))
+            }, 2000)
         } catch (error) {
             dispatch(receiveRefreshLogin(null, error))
         }

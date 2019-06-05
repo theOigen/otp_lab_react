@@ -1,0 +1,11 @@
+.home-page {
+  height: 100%;
+  width: 100%;
+  font-family: "Helvetica Neue";
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.home-page > .container {
+  height: 100%;
+}

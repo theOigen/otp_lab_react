@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../actions/authActions'
 import { connect } from 'react-redux'
 import './Login.css'
+import '../Spinner.css'
 
 const Status = Object.freeze({
     VALID: 'valid',
@@ -87,12 +88,12 @@ class Login extends Component {
 
     render() {
         if (this.state.user) {
-            return <Redirect to="/forecasts" />
+            return <Redirect to="/dashboard" />
         } else if (this.state.isLoading) {
             return (
                 <div className="login-page">
                     <div className="container">
-                        <div className="login-wrapper">
+                        <div className="spinner-wrapper">
                             <div className="lds-ring">
                                 <div></div>
                                 <div></div>
@@ -119,6 +120,7 @@ class Login extends Component {
                                         placeholder="Login"
                                         value={this.state.login}
                                         onChange={this.onChange}
+                                        title="Only english letters, numbers and underscore, from 5 to 16 chars length"
                                     />
                                 </div>
                                 <div className="form-group">
@@ -131,6 +133,7 @@ class Login extends Component {
                                         placeholder="Password"
                                         value={this.state.password}
                                         onChange={this.onChange}
+                                        title="From 6 chars length"
                                     />
                                 </div>
                                 <div className="form-group form-check">

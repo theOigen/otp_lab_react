@@ -7,9 +7,9 @@ class NotFound extends Component {
         return (
             <div className="not-found">
                 <div className="error-message">
-                    <h1>404</h1>
+                    <h1>Error 404</h1>
                     <Link to="/login">
-                        Try to login
+                        Login
                     </Link>
                 </div>
             </div>
