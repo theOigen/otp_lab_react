@@ -3,6 +3,14 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchWeather } from '../actions/weatherActions'
 
+/**
+ * @TODO
+ * import { Link } from 'react-router-dom'
+ * <Link to="/{path}"
+ *  <li>blah-blah</li>
+ * </Link>
+ */
+
 class Home extends Component {
     constructor(props) {
         super(props)

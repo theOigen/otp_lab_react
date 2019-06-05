@@ -1,10 +1,9 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import './App.css'
-import Login from './components/Login/Login'
-import Home from './components/Home'
 import { Provider } from 'react-redux'
 import store from './store'
+import Main from './components/Main'
 
 class App extends React.Component {
     render() {
@@ -12,24 +11,12 @@ class App extends React.Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <div className="App">
-                        <Switch>
-                            <Route path="/" exact component={Home} />
-                            <Route path="/login" exact component={Login} />
-                        </Switch>
+                        <Main />
                     </div>
                 </BrowserRouter>
             </Provider>
         )
     }
 }
-
-
-/**
- * @TODO
- * import { Link } from 'react-router-dom'
- * <Link to="/{path}"
- *  <li>blah-blah</li>
- * </Link>
- */
 
 export default App
