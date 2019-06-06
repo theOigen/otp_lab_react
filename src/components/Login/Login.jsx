@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { fetchLogin } from '../../actions/authActions'
 import { connect } from 'react-redux'
 import './Login.css'
-import '../Spinner.css'
+import Spinner from '../Spinner'
 
 const Status = Object.freeze({
     VALID: 'valid',
@@ -90,20 +90,7 @@ class Login extends Component {
         if (this.state.user) {
             return <Redirect to="/dashboard" />
         } else if (this.state.isLoading) {
-            return (
-                <div className="login-page">
-                    <div className="container">
-                        <div className="spinner-wrapper">
-                            <div className="lds-ring">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
+            return <Spinner />
         } else {
             return (
                 <div className="login-page">

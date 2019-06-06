@@ -9,7 +9,7 @@ import cardStyles from './cardStyles'
 import Container from '@material-ui/core/Container'
 import Grid from '@material-ui/core/Grid'
 import './Home.css'
-
+import Spinner from '../Spinner'
 class Home extends Component {
     constructor(props) {
         super(props)
@@ -57,20 +57,7 @@ class Home extends Component {
         if (!this.state.user) {
             return <Redirect to="/login" />
         } else if (this.state.isLoading || !this.state.forecasts) {
-            return (
-                <div className="home-page">
-                    <div className="container">
-                        <div className="spinner-wrapper">
-                            <div className="lds-ring">
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                                <div></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )
+            return <Spinner />
         } else {
             const forecastsArray = this.state.forecasts.consolidated_weather
             const classes = this.props.classes;
@@ -88,7 +75,7 @@ class Home extends Component {
                     <Container className={classes.cardGrid} maxWidth="md">
                         <Grid container spacing={4}>
                             {forecastsArray.map(forecast => (
-                                <Forecast forecast={forecast} classes={classes} />
+                                <Forecast key={forecast.id} forecast={forecast} classes={classes} />
                             ))}
                         </Grid>
                     </Container>
